@@ -21,29 +21,6 @@ names(pwrdata5)[6] <- "sub_metering_2"
 names(pwrdata5)[7] <- "sub_metering_3"
 names(pwrdata5)[8] <- "datetime"
 
-#plot1
-png(file = "plot1.png", bg = "white")
-hist(as.numeric(as.character(pwrdata5$global_active_power)), 
-main = "Global Active Power", xlab="Global Active Power (kilowats)", col = "red")
-dev.off()
-
-#plot 2
-png(file = "plot2.png", bg = "white")
-plot(pwrdata5$datetime,as.numeric(as.character(pwrdata5$global_active_power)), type="l", ylab="Global Active Power (kilowats)", xlab = "")
-dev.off()
-
-#plot 3
-x <- pwrdata5$datetime
-y1 <- as.numeric(as.character(pwrdata5$sub_metering_1))
-y2 <- as.numeric(as.character(pwrdata5$sub_metering_2))
-y3 <- as.numeric(as.character(pwrdata5$sub_metering_3))
-png(file = "plot3.png", bg = "white")
-plot(x, y1, ylab="Energy sub metering", xlab = "", type="l")
-points(x, y2, type="l", col="red")
-points(x, y3, type="l", col="blue")
-legend("topright", c("Sub_metering_1","Sub_metering_2","Sub_metering_3"), lty=c(1,1,1), col = c("black","red","blue"))
-dev.off()
-
 #plot 4
 png(file = "plot4.png", bg = "white")
 par(mfrow = c(2,2))
